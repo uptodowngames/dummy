@@ -1,1 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Roblox | Robux Spin and Win</title>
+<meta name="description" content="Free Robux - Spin and win!"/>
+<meta property="og:title" content="Roblox | Robux Spin and Win"/>
+<meta property="og:description" content="Free Robux - Spin and win!"/>
+<link rel="icon" type="image/svg+xml" href="img/spark.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://browser.sentry-cdn.com/6.4.1/bundle.min.js" integrity="sha384-THoc7rflwZFKTdZNgv6jLFFDn299Uv3t1SW5B4yGLvLiCRTYP9ys6vXZcMl95TQF" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<script src="js/silnik.js"></script>
+<link rel="stylesheet" href="css/arkusz.css">
+</head>
+<body onload="aChat()">
+<div class="main bounceIn">
 
+<div class="container">
+<div class="logo">
+<img src="img/roblox.png" alt="logo" class="img-fluid" />
+<p class="logo-desc">SPIN & WIN FREE ROBUX</p>
+</div>
+
+<div class="firstPage bounceIn animation-delay-400">
+<div class="box">
+<div class="content">
+
+<div class="special-con text-center">
+<div id="getnow" style="display: none; text-align: center; padding: 30px 0px;">
+<h1 class="text-win">Congratulations! 🤗</h1>	
+<h2 class="text-win" style="margin-bottom: 20px;">YOU WIN 22 500 ROBUX 🤑</h2>
+<div style="margin-top: 40px; ">
+<button class="installBtn button-spin">GET IT NOW<span></span><span></span><span></span><span></span></button>
+</div>
+</div>
+<div id="ans" style="display: none;"></div>
+
+<button class="button-spin animate__animated animate__heartBeat animate__infinite" id="spin" style="display: block; margin: 0 auto;" onclick="spin();">SPIN AND WIN<span></span><span></span><span></span><span></span></button>
+
+<canvas id="canvas" width="500" height="500" style="margin: 0 auto; text-align: center;"></canvas>
+<img src="img/spinthewheel_arrow.svg" width="50" height="50" id="arrow" class="special-display">
+
+<img src="img/spark.svg" width="30" height="30" id="center-logo" class="special-display">
+
+
+						</div>
+
+
+</div>
+</div>
+</div>
+
+<div class="secondPage bounceIn animation-delay-600" style='display:none'>
+<div class="box">
+<div class="content">
+		<div class="bottom-title">
+			<h3>Choose Your Platform</h3>
+		</div>
+
+		<div class="field-wrapper platform-field-wrapper">	
+				<div class="row small-margin">
+					<div class="col-sm-12 small-padding">
+						<div class="platform-item platform-item-1">
+							<img src="https://i.imgur.com/PDCbNli.png">
+							<span>PC</span>
+						</div>
+					</div>
+					<div class="col-sm-12 small-padding">
+						<div class="platform-item platform-item-2">
+							<img src="https://i.imgur.com/1xnUh96.png">
+							<span>iOS</span>
+						</div>
+					</div>
+					<div class="col-sm-12 small-padding">
+						<div class="platform-item platform-item-3">
+							<img src="https://i.imgur.com/OidHekB.png">
+							<span>Android</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cta-button-wrapper">
+					<a class="cta-button continueBtn primary-background" style="margin-top:20px">Continue</a>
+			</div>
+		</div>
+</div>
+</div>
+
+
+
+<div class="thirdPage bounceIn animation-delay-600" style='display:none'>
+<div class="box">
+<div class="content">
+	<div class="spinner-box">
+		<span class="spinner rotate"></span>
+	</div>
+	<p style="margin-top: 20px;text-align:center;font-weight: 900;font-size:22px;" id="text">Loading...</p>
+
+	<div id="verify" style="display:none">
+	<div class="cta-button-wrapper">
+		<a href="/direct.php" target="_blank" class="cta-button primary-background bounceIn" style="margin-top:20px;">Verify</a>
+	</div>
+	<h4 class="text-center">VIDEO TUTORIAL HOW TO INJECT VERIFICATION</h4>
+	<div class="embed-responsive embed-responsive-16by9">
+		<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/P0k0d0Z7iJs" allowfullscreen=""></iframe> <!--- YOUTUBE LINK VIDEO VERIFICATION -->
+	</div>
+	</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col-md-8">
+<div class="chat">
+<div class="box-second">
+<div class="content-second">
+<h1 class="nag text-center">Live Chat</h1>
+	<div class="innerchat"></div>
+	<h4 class="chatuse animate__animated animate__flash animate__infinite">If you want post a massage, first you must use the tool!</h4>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="chat">
+<div class="box">
+<div class="content">
+<h1 class="nag text-center">Latest Activities</h1>
+            <div id="container-activity" class="recent-activity">
+                <div class="clear"></div>
+            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+<script>
+  	$("#canvas").outerHeight($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
+    $(window).on("resize", function(){         				$("#canvas").outerHeight($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/spinengine.js"></script>
+<script type="text/javascript" src="js/last.js"></script>
+</body>
+</html>
